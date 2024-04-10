@@ -1,0 +1,4 @@
+langchain==0.1.5
+streamlit==1.0.0  # Optional, only if you are creating a web interface
+boto3==1.20.23
+aws-bedrock==0.2.0
