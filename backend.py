@@ -16,7 +16,7 @@ def demo_chatbot():
             "temperature": 0.9,
             "top_p": 0.5,
             "max_gen_len": 300 
-        }
+        },
         region_name='us-east-1'  
     )
     return demo_llm
