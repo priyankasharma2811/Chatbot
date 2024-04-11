@@ -1,7 +1,11 @@
 import os
+from dotenv import load_dotenv
 from langchain.llms.bedrock import Bedrock
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
+
+# Load environment variables
+load_dotenv()
 
 # Configurable parameters
 model_id = os.getenv('LLM_MODEL_ID', 'meta.llama2-13b-chat-v1')
