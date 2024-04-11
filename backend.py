@@ -15,8 +15,9 @@ def demo_chatbot():
         model_kwargs={
             "temperature": 0.9,
             "top_p": 0.5,
-            "max_gen_len": 100 
+            "max_gen_len": 200 
         }
+        region_name='us-east-1'  
     )
     return demo_llm
 
