@@ -3,6 +3,13 @@ from langchain.llms.bedrock import Bedrock
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 
+# Configurable parameters
+model_id = os.getenv('LLM_MODEL_ID', 'meta.llama2-13b-chat-v1')
+temperature = float(os.getenv('LLM_TEMPERATURE', '0.9'))
+top_p = float(os.getenv('LLM_TOP_P', '0.5'))
+max_gen_len = int(os.getenv('LLM_MAX_GEN_LEN', '300'))
+region_name = os.getenv('AWS_REGION', 'us-east-1')
+
 # Initialization
 # This section sets up the language model (LLM) environment and configuration.
 
@@ -11,13 +18,13 @@ def demo_chatbot():
     # Create a Bedrock LLM instance with specific model parameters.
     demo_llm = Bedrock(
         credentials_profile_name='default',
-        model_id='meta.llama2-13b-chat-v1',
+        model_id=model_id,
         model_kwargs={
-            "temperature": 0.9,
-            "top_p": 0.5,
-            "max_gen_len": 500 
+            "temperature": temperature,
+            "top_p": top_p,
+            "max_gen_len": max_gen_len 
         },
-        region_name='us-east-1'  
+        region_name=region_name  
     )
     return demo_llm
 
