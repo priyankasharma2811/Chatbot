@@ -34,8 +34,18 @@ def demo_conversation(input_text, memory):
     llm_instance = demo_chatbot()
     llm_conversation = ConversationChain(llm=llm_instance, memory=memory, verbose=True)
     full_response = llm_conversation.run({'input': input_text})
-    trimmed_response = full_response.split('.')[0] + '.'  # Split by period for sentences
-    return trimmed_response
+
+    # Example of dynamic response length adjustment
+    if 'explain' in input_text or 'detail' in input_text:
+        # If the user asks for an explanation or detail, return a longer response
+        sentences = full_response.split('.')
+        response = '. '.join(sentences[:3])  # Adjust number of sentences as needed
+    else:
+        # For other types of queries, return a shorter response
+        sentences = full_response.split('.')
+        response = sentences[0] if sentences else full_response
+
+    return response.strip() + ('.' if not response.endswith('.') else '')
 
 
 
