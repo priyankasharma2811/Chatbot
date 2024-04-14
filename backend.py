@@ -11,7 +11,7 @@ load_dotenv()
 model_id = os.getenv('LLM_MODEL_ID', 'meta.llama2-13b-chat-v1')
 temperature = float(os.getenv('LLM_TEMPERATURE', '0.9'))
 top_p = float(os.getenv('LLM_TOP_P', '0.5'))
-max_gen_len = int(os.getenv('LLM_MAX_GEN_LEN', '300'))
+max_gen_len = int(os.getenv('LLM_MAX_GEN_LEN', '512'))
 region_name = os.getenv('AWS_REGION', 'us-east-1')
 
 # Initialization
