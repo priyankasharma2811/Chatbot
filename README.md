@@ -31,6 +31,17 @@ Install the required dependencies:
 ```
 pip install -r requirements.txt
 ```
+## Environment Setup
+
+To run the chatbot, you need to set the following environment variables:
+
+- `LLM_MODEL_ID`: The model identifier for the LLM. Example: 'meta.llama2-13b-chat-v1'
+- `LLM_TEMPERATURE`: Controls the randomness of the response generation. Example: 0.9
+- `LLM_TOP_P`: Controls the nucleus sampling. Example: 0.5
+- `LLM_MAX_GEN_LEN`: Maximum generation length of the responses. Example: 512
+- `AWS_REGION`: The AWS region where the services are deployed. Example: 'us-east-1'
+
+These variables can be set in an `.env` file located in the root directory of the project.
 
 ### Setup
 
