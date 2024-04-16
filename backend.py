@@ -40,17 +40,17 @@ def demo_memory():
     return memory
 
 # API Functions
-# Define any additional functions that will interface with the front end.
+
 def demo_conversation(input_text, memory): 
     llm_instance = demo_chatbot()
     llm_conversation = ConversationChain(llm=llm_instance, memory=memory, verbose=True)
     full_response = llm_conversation.run({'input': input_text})
 
-    # Example of dynamic response length adjustment
+    
     if 'explain' in input_text or 'detail' in input_text:
         # If the user asks for an explanation or detail, return a longer response
         sentences = full_response.split('.')
-        response = '. '.join(sentences[:3])  # Adjust number of sentences as needed
+        response = '. '.join(sentences[:3])  
     else:
         # For other types of queries, return a shorter response
         sentences = full_response.split('.')
